@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FeatureFlagsAspNet.Features.Domain.UserFeature>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Preview Features</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Feature)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Feature.Title)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Remove</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
